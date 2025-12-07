@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        iframe {
+            width: 90%;
+            height: 90%;
+            border-radius: 12px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="player" allowfullscreen allow="autoplay"></iframe>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get("code");
+
+        if (!code) {
+            alert("Video not found!");
+        } else {
+            const iframe = document.getElementById("player");
+            iframe.src = `https://doodstream.com/e/${code}`;
+        }
+    </script>
+
+</body>
+</html>
