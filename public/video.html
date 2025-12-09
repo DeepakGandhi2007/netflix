@@ -26,17 +26,19 @@
 
     <iframe id="player" allowfullscreen allow="autoplay"></iframe>
 
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const code = params.get("code");
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
 
-        if (!code) {
-            alert("Video not found!");
-        } else {
-            const iframe = document.getElementById("player");
-            iframe.src = `https://doodstream.com/e/${code}`;
-        }
-    </script>
+    if (!code) {
+        alert("Video not found!");
+    } else {
+        const iframe = document.getElementById("player");
+
+        // ✅ FORCE AUTOPLAY + UNMUTED + INLINE PLAY
+        iframe.src = `https://doodstream.com/e/${code}?autoplay=1&mute=0&playing=1`;
+    }
+</script>
 
 </body>
 </html>
